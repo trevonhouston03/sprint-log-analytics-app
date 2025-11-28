@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sprint Log & Analytics - MVP</title>
+</head>
+<body>
+  <h1>Sprint Log & Analytics (MVP)</h1>
+  <form id="logForm">
+    <label>Date: <input type="date" id="date" required></label><br>
+    <label>Distance (m): <input type="number" id="distance" step="0.1" required></label><br>
+    <label>Time (s): <input type="number" id="time" step="0.01" required></label><br>
+    <label>Notes: <input type="text" id="notes"></label><br>
+    <button type="submit">Log Workout</button>
+  </form>
+
+  <h2>Recent Workouts</h2>
+  <div id="list"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
