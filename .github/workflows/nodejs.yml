@@ -19,5 +19,5 @@ jobs:
         run: |
           cd backend
           npm install
-      - name: Run simple check
-        run: echo "No tests configured"
+      - name: Smoke test
+        run: echo "No automated tests yet"

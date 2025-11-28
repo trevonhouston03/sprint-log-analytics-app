@@ -10,6 +10,7 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
   web:
     build: .
     ports:
@@ -18,5 +19,9 @@ services:
       - DATABASE_URL=postgres://user:pass@db:5432/slaa_db
     depends_on:
       - db
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend
+
 volumes:
   pgdata:

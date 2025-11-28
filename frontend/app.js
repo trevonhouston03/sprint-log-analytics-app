@@ -1,4 +1,4 @@
-const apiBase = 'http://localhost:5000/api/workouts';
+const apiBase = '/api/workouts';
 
 document.getElementById('logForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -8,22 +8,17 @@ document.getElementById('logForm').addEventListener('submit', async (e) => {
     time: parseFloat(document.getElementById('time').value),
     notes: document.getElementById('notes').value
   };
-  try {
-    const res = await fetch(apiBase, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const data = await res.json();
-    if (res.ok) {
-      alert('Workout logged!');
-      loadList();
-    } else {
-      alert('Error: ' + (data.error || 'Unknown'));
-    }
-  } catch (err) {
-    console.error(err);
-    alert('Network error');
+  const res = await fetch(apiBase, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (res.ok) {
+    alert('Workout logged!');
+    loadList();
+  } else {
+    alert('Error: ' + (data.error || 'Unknown'));
   }
 });
 
